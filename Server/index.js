@@ -2,6 +2,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
+const User = require('./models/user')
+const jobDetails = require('./models/jobs')
 const mongoose = require('mongoose')
 dotenv.config()
 
@@ -10,6 +12,14 @@ const app = express()
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
+
+
+//Creating schemas
+
+
+
+
+
 
 //Creating a simple health API using a GET route
 app.get('/', (req, res) => {
@@ -29,7 +39,7 @@ app.get('/', (req, res) => {
 
 
 
-// Attaching the server to a port
+// Attaching the server to a port and database
 app.listen(process.env.PORT, () => {
     mongoose
     .connect(process.env.MONGODB_URL)
